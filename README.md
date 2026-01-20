@@ -1,26 +1,64 @@
-# FrontendApplication
+# Frontend Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.7.
+This is a sample Angular frontend application with authentication, dashboard, and user management features.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Login authentication
+- Protected routes using Angular guards
+- Dashboard with user list (fetched from public API)
+- HTTP interceptor for token management
+- Responsive UI with Bootstrap
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prerequisites
 
-## Build
+- Node.js (v16+ recommended)
+- npm (v8+ recommended)
+- Angular CLI (`npm install -g @angular/cli`)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Installation
 
-## Running unit tests
+1. Open the folder in code editor and run:
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+   ```
+   git clone <your-repo-url>
+   cd frontend-application
+   ```
 
-## Running end-to-end tests
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Running the Application
+
+Start the development server:
+
+```
+npm start
+```
+
+or
+
+```
+ng serve
+```
+
+Open [http://localhost:4200](http://localhost:4200) in your browser.
+
+### Project Structure
+
+- `src/app/core` - services, guards, interceptors, constants
+- `src/app/modules/auth` - Authentication module (login)
+- `src/app/modules/home` - Home module (dashboard)
+- `src/app/shared` - Shared models and enums
+
+### Environment
+
+- Public API: [dummyjson.com](https://dummyjson.com)
+- Token stored in `localStorage` as `auth_token`
 
 ## Further help
 
