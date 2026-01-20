@@ -1,0 +1,91 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+  <div class="col-md-4">
+    <div class="card shadow-sm">
+      <div class="card-body">
+        <h3 class="card-title text-center mb-4">Login</h3>
+
+        <div class="alert alert-info text-center mb-3">
+          <strong>Use below credentials for login:</strong><br />
+          <span>Username: <code>emilys</code></span
+          ><br />
+          <span>Password: <code>emilyspass</code></span>
+        </div>
+
+        <div *ngIf="errorMessage" class="alert alert-danger">
+          {{ errorMessage }}
+        </div>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="mb-3">
+            <label for="username" class="form-label">Username</label>
+            <input
+              type="text"
+              id="username"
+              class="form-control"
+              formControlName="username"
+              [class.is-invalid]="
+                username?.invalid && (username?.touched || username?.dirty)
+              "
+            />
+            <div
+              *ngIf="
+                username?.invalid && (username?.touched || username?.dirty)
+              "
+              class="invalid-feedback"
+            >
+              <span *ngIf="username?.errors?.['required']"
+                >Username is required.</span
+              >
+              <span *ngIf="username?.errors?.['email']"
+                >Enter a valid email.</span
+              >
+            </div>
+          </div>
+
+          <div class="mb-3 position-relative">
+            <label for="password" class="form-label">Password</label>
+            <input
+              [type]="showPassword ? 'text' : 'password'"
+              id="password"
+              class="form-control"
+              formControlName="password"
+              [class.is-invalid]="
+                password?.invalid && (password?.touched || password?.dirty)
+              "
+            />
+            <button
+              type="button"
+              class="btn btn-outline-secondary btn-sm position-absolute mt-3 me-2 top-50 end-0 translate-middle-y"
+              (click)="togglePasswordVisibility()"
+              tabindex="-1"
+              style="z-index: 2"
+            >
+              <i [ngClass]="showPassword ? 'bi bi-eye-slash' : 'bi bi-eye'"></i>
+            </button>
+            <div
+              *ngIf="
+                password?.invalid && (password?.touched || password?.dirty)
+              "
+              class="invalid-feedback"
+            >
+              Password is required.
+            </div>
+          </div>
+          <button
+            class="btn btn-primary w-100"
+            type="submit"
+            [disabled]="loading"
+          >
+            <span
+              *ngIf="loading"
+              class="spinner-border spinner-border-sm me-2"
+              role="status"
+              aria-hidden="true"
+            ></span>
+            {{ loading ? "Logging in..." : "Login" }}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
