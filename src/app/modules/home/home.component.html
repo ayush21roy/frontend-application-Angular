@@ -1,0 +1,25 @@
+<div class="container-fluid p-0">
+  <!-- Header -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light p-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Frontend Application</a>
+      <div class="d-flex align-items-center">
+        <button
+          class="btn btn-outline-danger bg-danger text-white btn-md"
+          (click)="logout()"
+        >
+          Logout
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container mt-4">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-light text-center py-3 mt-auto">
+    &copy; {{ currentYear }} Frontend Application. All rights reserved.
+  </footer>
+</div>
